@@ -13,9 +13,6 @@ const Landing = () => {
             <a className="text-primary font-bold border-b-2 border-primary pb-1 font-headline tracking-tight text-sm" href="#">
               Features
             </a>
-            <a className="text-on-surface-variant hover:text-primary transition-colors font-headline tracking-tight text-sm" href="#">
-              Pricing
-            </a>
           </div>
           <div className="flex items-center gap-3">
             <Link
