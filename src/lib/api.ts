@@ -1,4 +1,13 @@
-const BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://curator-ai-backend-flame.vercel.app";
+const getBaseUrl = () => {
+  const envUrl = import.meta.env.VITE_API_BASE_URL;
+  if (!envUrl || envUrl.includes("localhost") || envUrl.includes("127.0.0.1")) {
+    if (typeof window !== "undefined" && !window.location.hostname.includes("localhost")) {
+      return "https://curator-ai-backend-flame.vercel.app";
+    }
+  }
+  return envUrl || "https://curator-ai-backend-flame.vercel.app";
+};
+const BASE_URL = getBaseUrl();
 
 interface RequestOptions extends RequestInit {
   auth?: boolean;
