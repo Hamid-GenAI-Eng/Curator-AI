@@ -7,7 +7,7 @@ const getBaseUrl = () => {
   }
   return envUrl || "https://curator-ai-backend-flame.vercel.app";
 };
-const BASE_URL = getBaseUrl();
+const BASE_URL = getBaseUrl().replace(/\/$/, "");
 
 interface RequestOptions extends RequestInit {
   auth?: boolean;

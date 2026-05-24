@@ -45,7 +45,7 @@ const ProjectResults = () => {
         }
         return envUrl || "https://curator-ai-backend-flame.vercel.app";
       };
-      const BASE_URL = getBaseUrl();
+      const BASE_URL = getBaseUrl().replace(/\/$/, "");
       const token = sessionStorage.getItem("auth_token");
       
       // Call our proxy endpoint to avoid CORS and force download headers
