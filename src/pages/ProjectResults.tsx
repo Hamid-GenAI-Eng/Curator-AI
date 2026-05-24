@@ -37,7 +37,7 @@ const ProjectResults = () => {
     
     try {
       const token = sessionStorage.getItem("auth_token");
-      const BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
+      const BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://curator-ai-backend-flame.vercel.app";
       
       // Call our proxy endpoint to avoid CORS and force download headers
       const response = await fetch(`${BASE_URL}/notes/batches/${id}/download`, {
