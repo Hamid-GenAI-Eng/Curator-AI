@@ -1,6 +1,38 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Mail, ExternalLink, Sparkles, Cpu, Code2, Globe, Heart } from "lucide-react";
 
 const Landing = () => {
+  const [ideaText, setIdeaText] = useState("");
+  const [analysisResult, setAnalysisResult] = useState<string | null>(null);
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
+
+  const handleAnalyzeIdea = () => {
+    if (!ideaText.trim()) return;
+    setIsAnalyzing(true);
+    setAnalysisResult(null);
+
+    setTimeout(() => {
+      setIsAnalyzing(false);
+      const text = ideaText.toLowerCase();
+      let matchedDomain = "custom software development";
+      if (text.includes("ai") || text.includes("gpt") || text.includes("intelligence") || text.includes("model") || text.includes("bot") || text.includes("ocr")) {
+        matchedDomain = "AI Pipeline Engineering & Neural Integration";
+      } else if (text.includes("mobile") || text.includes("app") || text.includes("ios") || text.includes("android")) {
+        matchedDomain = "Native & Multiplatform Mobile App Development";
+      } else if (text.includes("web") || text.includes("site") || text.includes("platform") || text.includes("dashboard")) {
+        matchedDomain = "Scalable Full-Stack Web App Architectures";
+      } else if (text.includes("cloud") || text.includes("server") || text.includes("database") || text.includes("security")) {
+        matchedDomain = "Secure Enterprise Cloud Infrastructure";
+      } else if (text.includes("saas") || text.includes("business") || text.includes("crm") || text.includes("billing")) {
+        matchedDomain = "High-Conversion SaaS Product Engineering";
+      }
+
+      setAnalysisResult(
+        `That is a brilliant concept! Code Envision Technologies has direct, specialized experience in ${matchedDomain} to bring this vision to life with bleeding-edge speeds and premium, responsive user interfaces. Let's start building it!`
+      );
+    }, 1500);
+  };
   return (
     <div className="bg-surface font-body text-on-surface min-h-screen">
       {/* Navigation */}
@@ -349,6 +381,172 @@ const Landing = () => {
             </div>
           </div>
         </section>
+
+        {/* Code Envision Technologies Promotion Showcase */}
+        <section className="max-w-7xl mx-auto px-6 md:px-8 py-16 lg:py-24 border-t border-border/40 relative overflow-hidden">
+          {/* Subtle glowing lights in background */}
+          <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 pointer-events-none" />
+          <div className="absolute top-1/2 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl -translate-y-1/2 pointer-events-none" />
+
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            {/* Left: Branding & Pitch */}
+            <div className="lg:col-span-7 space-y-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-black tracking-widest uppercase border border-primary/20">
+                <Sparkles className="w-3.5 h-3.5 animate-pulse" />
+                Featured Builder
+              </div>
+              <h2 className="text-4xl lg:text-5xl font-extrabold font-headline tracking-tighter text-on-surface leading-tight">
+                Architected & Engineered by <br />
+                <span className="bg-gradient-to-r from-primary via-purple-600 to-indigo-600 bg-clip-text text-transparent">
+                  Code Envision Technologies
+                </span>
+              </h2>
+              <p className="text-on-surface-variant text-base lg:text-lg font-medium leading-relaxed">
+                Envisioning Future. Coding Reality. We partner with innovators worldwide to turn bold, complex product ideas into sleek, scalable, and premium digital solutions like Curator AI.
+              </p>
+
+              {/* Grid of expertise */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                <div className="flex items-center gap-3 p-3 rounded-2xl bg-surface-container-low border border-border/50">
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                    <Cpu className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-black uppercase tracking-wider text-on-surface">AI & ML Pipelines</h4>
+                    <p className="text-[10px] text-on-surface-variant">OCR, Vision, Agents</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 p-3 rounded-2xl bg-surface-container-low border border-border/50">
+                  <div className="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-600">
+                    <Code2 className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-black uppercase tracking-wider text-on-surface">Premium SaaS</h4>
+                    <p className="text-[10px] text-on-surface-variant">Vibrant & Modern UIs</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 p-3 rounded-2xl bg-surface-container-low border border-border/50">
+                  <div className="w-10 h-10 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-600">
+                    <Globe className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-black uppercase tracking-wider text-on-surface">Web & Mobile Apps</h4>
+                    <p className="text-[10px] text-on-surface-variant">NextJS, Vite, iOS, Android</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 p-3 rounded-2xl bg-surface-container-low border border-border/50">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-600">
+                    <Sparkles className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-black uppercase tracking-wider text-on-surface">Cloud Architectures</h4>
+                    <p className="text-[10px] text-on-surface-variant">Serverless, Scale & Speed</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex flex-wrap gap-4 pt-4">
+                <a
+                  href="https://www.codeenvisiontechnologies.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-on-surface text-surface hover:bg-primary transition-all text-xs font-black uppercase tracking-widest editorial-shadow"
+                >
+                  Envision Your Idea
+                  <ExternalLink className="w-4 h-4" />
+                </a>
+                <a
+                  href="mailto:info.codeenvision@gmail.com"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-surface-container-low hover:bg-surface-container-high border border-border/50 transition-all text-xs font-black uppercase tracking-widest"
+                >
+                  <Mail className="w-4 h-4" />
+                  Get in Touch
+                </a>
+              </div>
+            </div>
+
+            {/* Right: The Interactive Idea Envisioner Widget */}
+            <div className="lg:col-span-5">
+              <div className="bg-surface-container-lowest/80 backdrop-blur-md rounded-3xl p-8 border border-border/50 editorial-shadow space-y-6 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl pointer-events-none" />
+                
+                {/* Brand Header */}
+                <div className="flex items-center gap-4 border-b border-border/40 pb-5">
+                  <img
+                    src="/code_envision_logo.jpg"
+                    alt="Code Envision Logo"
+                    className="w-12 h-12 object-contain rounded-xl bg-white p-1 border border-border/30"
+                  />
+                  <div>
+                    <h3 className="text-sm font-black uppercase tracking-widest text-on-surface">Neural Envisioner</h3>
+                    <p className="text-[10px] text-outline font-bold uppercase tracking-wider">Concept Feasibility Sandbox</p>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <label className="block text-[11px] font-black text-on-surface uppercase tracking-widest">
+                    Describe Your Product Idea
+                  </label>
+                  <textarea
+                    rows={3}
+                    value={ideaText}
+                    onChange={(e) => setIdeaText(e.target.value)}
+                    placeholder="e.g., A mobile app that uses local vision models to synthesize notes in real-time..."
+                    className="w-full px-4 py-3 rounded-2xl bg-surface border border-border/60 focus:border-primary/50 outline-none text-xs font-medium resize-none transition-colors placeholder:text-outline/40 leading-relaxed"
+                  />
+                </div>
+
+                <button
+                  onClick={handleAnalyzeIdea}
+                  disabled={isAnalyzing || !ideaText.trim()}
+                  className={`w-full py-4 rounded-2xl text-xs font-black uppercase tracking-widest transition-all ${
+                    isAnalyzing
+                      ? "bg-surface-container-high text-outline cursor-wait"
+                      : !ideaText.trim()
+                      ? "bg-surface-container-low text-outline/40 cursor-not-allowed"
+                      : "bg-primary text-primary-foreground hover:bg-primary/95 active:scale-[0.98] shadow-lg shadow-primary/20"
+                  }`}
+                >
+                  {isAnalyzing ? (
+                    <span className="flex items-center justify-center gap-2">
+                      <span className="w-4 h-4 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+                      Scanning Tech Vectors...
+                    </span>
+                  ) : (
+                    <span className="flex items-center justify-center gap-2">
+                      <Sparkles className="w-4 h-4" />
+                      Envision Project
+                    </span>
+                  )}
+                </button>
+
+                {/* Dynamic Analysis output card */}
+                {analysisResult && (
+                  <div className="p-4 rounded-2xl bg-primary/5 border border-primary/20 animate-fade-in space-y-4">
+                    <p className="text-xs font-medium text-on-surface leading-relaxed italic">
+                      "{analysisResult}"
+                    </p>
+                    <div className="flex justify-between items-center gap-4 pt-1 border-t border-primary/10">
+                      <span className="text-[9px] font-black text-primary uppercase tracking-widest">
+                        Feasibility: 100% Ready
+                      </span>
+                      <a
+                        href="https://www.codeenvisiontechnologies.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-[9px] font-black text-purple-600 hover:text-primary uppercase tracking-widest transition-colors"
+                      >
+                        Let's Build It
+                        <ExternalLink className="w-3 h-3" />
+                      </a>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
 
       {/* Footer */}
@@ -360,6 +558,17 @@ const Landing = () => {
             </div>
             <p className="text-outline text-xs font-medium">
               © 2024 Curator AI. The Intelligent Canvas.
+            </p>
+            <p className="text-[10px] text-outline/70 font-semibold tracking-wider uppercase flex items-center gap-1 mt-1">
+              Engineered with <Heart className="w-3 h-3 inline text-red-500 animate-pulse" /> by{" "}
+              <a
+                href="https://www.codeenvisiontechnologies.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:underline font-black"
+              >
+                Code Envision Technologies
+              </a>
             </p>
           </div>
           <div className="flex gap-6">
