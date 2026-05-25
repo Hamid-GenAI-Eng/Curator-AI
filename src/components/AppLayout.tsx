@@ -61,6 +61,42 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
           })}
         </nav>
 
+        {/* Code Envision Promo Sidebar Card */}
+        {!collapsed && (
+          <div className="mx-3 my-3 p-3.5 rounded-2xl bg-surface-container-high/40 border border-border/75 relative overflow-hidden space-y-3 group hover:border-primary/30 transition-all duration-300">
+            <div className="absolute top-0 right-0 w-16 h-16 bg-primary/5 rounded-full blur-xl pointer-events-none" />
+            
+            {/* Header: Logo and Brand Name */}
+            <div className="flex items-center gap-2.5">
+              <img
+                src="/code_envision_logo.jpg"
+                alt="Code Envision Logo"
+                className="w-7 h-7 object-contain rounded-lg bg-white p-0.5 border border-border/20 group-hover:scale-105 transition-transform"
+              />
+              <div className="leading-tight">
+                <h4 className="text-[9px] font-black uppercase tracking-widest text-on-surface">Code Envision</h4>
+                <p className="text-[7px] font-black text-primary tracking-widest uppercase">Technologies</p>
+              </div>
+            </div>
+
+            {/* Tagline Pitch */}
+            <p className="text-[9px] text-on-surface-variant font-bold leading-normal">
+              Need custom AI, modern SaaS products, or mobile apps? Let's build your vision.
+            </p>
+
+            {/* CTA Link */}
+            <a
+              href="https://www.codeenvisiontechnologies.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-1 w-full py-2 rounded-lg bg-on-surface text-surface hover:bg-primary hover:text-primary-foreground text-[8px] font-black uppercase tracking-wider transition-all shadow-sm active:scale-95"
+            >
+              Partner With Us
+              <span className="material-symbols-outlined text-[10px]">open_in_new</span>
+            </a>
+          </div>
+        )}
+
         {/* Collapse toggle */}
         <button
           onClick={() => setCollapsed(!collapsed)}
