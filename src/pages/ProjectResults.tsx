@@ -154,11 +154,10 @@ const ProjectResults = () => {
               </div>
               <Button 
                 onClick={handleExportPDF}
-                disabled={!batch.pdf_url}
                 className="rounded-2xl bg-on-surface text-surface hover:bg-primary font-black uppercase tracking-[0.2em] text-[11px] px-8 h-14 editorial-shadow active:scale-95 transition-all gap-3"
               >
                 <FileDown className="w-5 h-5" />
-                {batch.pdf_url ? "Export Professional PDF" : "Generating PDF..."}
+                Export Professional PDF
               </Button>
             </div>
           </div>
@@ -251,7 +250,6 @@ const ProjectResults = () => {
              <div className="flex gap-4 mt-10">
                 <Button 
                   onClick={handleExportPDF}
-                  disabled={!batch.pdf_url}
                   className="rounded-2xl bg-primary text-primary-foreground font-black uppercase tracking-widest text-[11px] px-10 h-14 editorial-shadow"
                 >
                   Download Report
